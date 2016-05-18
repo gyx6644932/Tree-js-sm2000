@@ -1,0 +1,321 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jquery实现多级树形分类可折叠菜单特效代码</title>
+
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <!--主要样式-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <style type="text/css"></style>
+      <style type="text/css">
+.tree{ margin-left:-30px;}
+.tree div{ padding-left:30px;}
+.tree div ul{ overflow:hidden; display:none; height:auto;}
+.menuTree span{ display:block; height:25px; line-height:25px; padding-left:5px; margin:1px 0; cursor:pointer; border-bottom:1px solid #CCC;}
+.menuTree span:hover{ background-color:#e6e6e6; color:#cf0404;}
+.menuTree a{ color:#333; text-decoration:none;}
+.menuTree a:hover{ color:#06F;}
+.btn{ height:30px; margin-top:10px; border-bottom:1px solid #CCC;}
+</style>
+    <script type="text/javascript">
+$(function(){
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+    $('.tree li.parent_li > span').on('click', function (e) {
+        var children = $(this).parent('li.parent_li').find(' > ul > li');
+        if (children.is(":visible")) {
+            children.hide('fast');
+            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+        } else {
+            children.show('fast');
+            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+        }
+        e.stopPropagation();
+    });
+});
+</script>
+
+</head>
+<body>
+
+    <div class="tree well">
+        <ul>
+            <li class="parent_li">
+                <span title="Collapse this branch"> <i class="icon-folder-open"></i>
+                    Parent
+                </span>
+                <ul>
+                    <li class="parent_li">
+                        <span title="Collapse this branch"> <i class="icon-minus-sign"></i>
+                            Child
+                        </span>
+                        <ul>
+                            <li style="display: list-item;">
+                                <span>
+                                    <i class="icon-leaf"></i>
+                                    Grand Child
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="parent_li">
+                        <span title="Collapse this branch">
+                            <i class="icon-minus-sign"></i>
+                            Child
+                        </span>
+                        <ul>
+                            <li>
+                                <span>
+                                    <i class="icon-leaf"></i>
+                                    Grand Child
+                                </span>
+                            </li>
+                            <li class="parent_li">
+                                <span title="Collapse this branch">
+                                    <i class="icon-minus-sign"></i>
+                                    Grand Child
+                                </span>
+                                <ul>
+                                    <li class="parent_li">
+                                        <span title="Collapse this branch">
+                                            <i class="icon-minus-sign"></i>
+                                            Great Grand Child
+                                        </span>
+                                        <ul>
+                                             <li class="parent_li">
+                        <span title="Collapse this branch">
+                            <i class="icon-minus-sign"></i>
+                            Child
+                        </span>
+                        <ul>
+                            <li>
+                                <span>
+                                    <i class="icon-leaf"></i>
+                                    Grand Child
+                                </span>
+                            </li>
+                            <li class="parent_li">
+                                <span title="Collapse this branch">
+                                    <i class="icon-minus-sign"></i>
+                                    Grand Child
+                                </span>
+                                <ul>
+                                    <li class="parent_li">
+                                        <span title="Collapse this branch">
+                                            <i class="icon-minus-sign"></i>
+                                            Great Grand Child
+                                        </span>
+                                        <ul>
+                                            <li>
+                                                <span>
+                                                    <i class="icon-leaf"></i>
+                                                    Great great Grand Child
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span>
+                                                    <i class="icon-leaf"></i>
+                                                    Great great Grand Child
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i class="icon-leaf"></i>
+                                            Great Grand Child
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i class="icon-leaf"></i>
+                                            Great Grand Child
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>
+                                    <i class="icon-leaf"></i>
+                                    Grand Child
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i class="icon-leaf"></i>
+                                            Great Grand Child
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i class="icon-leaf"></i>
+                                            Great Grand Child
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>
+                                    <i class="icon-leaf"></i>
+                                    Grand Child
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="parent_li">
+                <span title="Collapse this branch">
+                    <i class="icon-folder-open"></i>
+                    Parent2
+                </span>
+                <ul>
+                    <li>
+                        <span>
+                            <i class="icon-leaf"></i>
+                            Child
+                        </span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tee">
+        <ul>r
+            <li class="parent_li">
+                <span title="Collapse this branch">
+                    <i class="icon-calendar"></i>
+                    2013, Week 2
+                </span>
+                <ul>
+                    <li class="parent_li">
+                        <span class="badge badge-success" title="Collapse this branch">
+                            <i class="icon-minus-sign"></i>
+                            Monday, January 7: 8.00 hours
+                        </span>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span>
+                                        <i class="icon-time"></i>
+                                        8.00
+                                    </span>
+                                    – Changed CSS to accomodate...
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="parent_li">
+                        <span class="badge badge-success" title="Collapse this branch">
+                            <i class="icon-minus-sign"></i>
+                            Tuesday, January 8: 8.00 hours
+                        </span>
+                        <ul>
+                            <li>
+                                <span>
+                                    <i class="icon-time"></i>
+                                    6.00
+                                </span>
+                                –
+                                <a href="">Altered code...</a>
+                            </li>
+                            <li>
+                                <span>
+                                    <i class="icon-time"></i>
+                                    2.00
+                                </span>
+                                –
+                                <a href="">Simplified our approach to...</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="parent_li">
+                        <span class="badge badge-warning" title="Collapse this branch">
+                            <i class="icon-minus-sign"></i>
+                            Wednesday, January 9: 6.00 hours
+                        </span>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span>
+                                        <i class="icon-time"></i>
+                                        3.00
+                                    </span>
+                                    – Fixed bug caused by...
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span>
+                                        <i class="icon-time"></i>
+                                        3.00
+                                    </span>
+                                    – Comitting latest code to Git...
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="parent_li">
+                        <span class="badge badge-important" title="Collapse this branch">
+                            <i class="icon-minus-sign"></i>
+                            Wednesday, January 9: 4.00 hours
+                        </span>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span>
+                                        <i class="icon-time"></i>
+                                        2.00
+                                    </span>
+                                    – Create component that...
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="parent_li">
+                <span title="Collapse this branch">
+                    <i class="icon-calendar"></i>
+                    2013, Week 3
+                </span>
+                <ul>
+                    <li class="parent_li">
+                        <span class="badge badge-success" title="Collapse this branch">
+                            <i class="icon-minus-sign"></i>
+                            Monday, January 14: 8.00 hours
+                        </span>
+                        <ul>
+                            <li>
+                                <span>
+                                    <i class="icon-time"></i>
+                                    7.75
+                                </span>
+                                –
+                                <a href="">Writing documentation...</a>
+                            </li>
+                            <li>
+                                <span>
+                                    <i class="icon-time"></i>
+                                    0.25
+                                </span>
+                                –
+                                <a href="">Reverting code back to...</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
